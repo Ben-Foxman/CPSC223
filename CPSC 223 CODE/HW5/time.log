@@ -1,0 +1,55 @@
+ESTIMATE: 21 Hours
+
+
+Date	Time Started 	Time Spent
+----------------------------------
+4/5		5:30pm 			0:45
+
+Set up makefile, header file for the hashtable,
+read specification.
+
+4/5 	10:00pm			1:10
+
+Wrote code to handle command line arguments, and 
+detect errors if applicable. 
+
+4/8		2:00pm 			1:10
+
+Began implementing hash table, so far have implemented
+create, search, insert(no chaining)
+
+4/14  	1:00pm 			3:00
+
+Wrote breadth first search algorithm - program passes all
+public tests except for memory leaks - which are being 
+caused by the line "newInitial = strdup(oldInitial);"
+
+4/14  	9:15pm 			1:15
+
+Fixed the strdup memory leak, program passes all public tests.
+To do: rehashing
+
+4/15    10:00pm  		3:30
+
+insertH now sorts cells by strcmp order of keys, searchH uses
+this property for faster search. Implemented rehashing, no memory
+errors.
+
+4/16  	3:45pm 			1:00
+
+Added some comments, wrote statemnet of difficulty, tried some final
+debugging of command line arguments
+
+TOTAL: 11 hours 50 minutes
+
+I did not work with anyone outside of the ULAs.
+
+Major Difficulties:
+Most of the difficulty for me in this assignment was in implementing the HashTable
+ADT. I initially had the HashTable struct contain just a size and a triple **, but
+after a few tries implementing the hashtable this way I realized that keeping 
+track of the number of entries in each cell of the HashTable was very hard, if not
+impossible. After scouring the newsgroup, I realized that each cell of the HashTable
+would be better implemented as its own struct, with its own size variable. After 
+discovering this, implementing the HashTable wasn't too difficult. The breadth-first algorithm in Nine20 was also pretty straightforward, and I was able to
+follow the spec hints pretty well. Overall, not as time-consuming as pset4.

@@ -1,0 +1,114 @@
+Ben Foxman - netid btf28
+
+ESTIMATE: 16 hours
+
+Date	Time Started	Time Spent
+-----------------------------------
+1/19	8:40 pm			2:40
+
+Figured out how to read in an input using getline.
+Starting to try to outline program, then wrote code
+to process any user specified flags. Wrote outline
+for handling the four upper case flags (how multiple
+substitutions should be applied). 
+
+1/20	3:40 pm 		2:10
+
+Starting to implement the logic of the method to 
+handle "q" flag. Getting various segmnetation faults
+when trying to concatenate the new string from substrings.
+
+1/21	2:35 pm 		0:25
+
+Figured out a bug which caused R and S flags to create 
+infinite loops. Program now works for all UPPERFLAGq 
+combinations, albeit with memory errors, no infinite
+loop detection, or escape characters.
+
+1/22 	2:05 pm 		1:05
+
+Program now works on the surface for all UPPERlower flag
+combinations, but has some memory errors associated with 
+the realloc'ing of the input string.
+
+1/23	5:00 pm 		0:45
+
+Still having issues with memory, program now has no memory errors
+but only prints out the original string with no subsititutions.
+
+1/23	6:30 pm 		1:00
+
+Implemented a tracker which holds onto the starting copy 
+of the string for infinite loop detection.
+
+1/23	8:00 pm 		4:30
+
+Reviewed memory errors with ULA's, could not figure out issue yet.
+Program has memory errors for some cases, but not all. Restructured
+the program to return a string instead of a boolean for the main 
+lower flag handling.
+
+1/24	2:45 pm 		2:00
+
+Memory errors have been fixed for test cases 1-9! The non-flags are 
+implemented succesfully, but the flags themselves are not. Also 
+discovered a bug where program seg faults when there are multiple lines
+of stdin.
+
+1/24	7:45 pm 		1:00
+
+Essentially Accomplished nothing, stared at valgrind.
+
+1/24 	11:45 pm 		1:00
+
+Oh yeah! I succesuflly implemented the fences - non/fences after some heavy 
+valgrind debugging.
+
+1/25  	4:00 pm 		2:05
+
+One fence is buggy (minus has memory errors, need to sort that out)
+
+1/25	7:45 pm 		1:35
+
+Program passes all the public test cases (finally!) but there are definitely 
+some edge cases which I still need to work out (for example if fi =  "-"). 
+Fixed the following edge cases: fi equivalent to "+", + and - fence both 
+effective.
+
+1/25	10:15 pm 		0:30
+
+Fixed the edge case if fi = "-", fi = "+-".
+
+1/26 	11:00 am 		0:30
+
+Styled code and condensed some duplicated code.
+
+1/26	5:00 pm 		0:10
+
+Looked over code, prepared to submit the final version.
+
+TOTAL: 21:25
+
+I did not discuss by code with anyone outside of ULA's at office hours.
+
+Staement of Major Difficulties:
+
+This was the first pset I genuinely believed that I might not be able to pass
+even the public test cases. I don't think the logic of handling the upper and 
+lower case flags was too difficult, but I think that not making a conscious 
+effort to keep tabs on memory usage until it was time to debug really cost me 
+several hours of time that I could've saved otherwise. Since the structure I
+chose for my program consisted of the input being passed through 2 different
+recursive methods (applyUpperRules and applyLowerRules), each of which had 
+various bases cases and exeptions, I would often run into the scenario where I 
+would forget to free either input of an auxiliary variables I used. 
+
+I also found implementing the fences to be much more difficult than I initially
+thought it would be. I ended up using two boolean flag variables, startPlus 
+andendMinus, to keep track of the existence of these fences, but I also tried
+much less succesful fixes, such as converting every string "abc" to one of the
+form "+abc-", which requires too many modifications to the code that normally
+loops through a string. 
+
+Overall, a challenging yet satisfying pset. 
+

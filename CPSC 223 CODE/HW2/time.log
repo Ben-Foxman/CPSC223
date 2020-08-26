@@ -1,0 +1,76 @@
+Ben Foxman - netid btf28
+
+
+ESTIMATE: 13 hours
+
+Date	Time Started	Amount of Time Spent
+--------------------------------------------
+2/6		3:35 pm			2:00
+
+Description: Outlined the program, including the method headers
+and general control flow. Wrote code to process input 
+and handle invalid command line arguments - wrote first fit 
+and first fit decreasing algorithms, which both pass their 
+respective public test cases. 
+
+2/6		11:30 pm 		1:00
+
+Description: Wrote best fit and best fit decreasing algorithms,
+which both pass their respective public test cases. Discovered
+a bug which causes command line args such as +1, 1., to be 
+processed incorrectly.  
+
+2/7		7:50 pm 		0:20
+
+Nothing accomplished of note, tried to debug my previous error but 
+failed.
+
+2/11	3:25 pm 		1:55
+
+Fixed problems validating input, ready to start tackling backtracking.
+Update: (60-90 mins into the session). Backtracking passes public test
+cases, no heuristics implemented yet. Just implemented Heuristic A.  
+
+2/11 	6:30 pm 		1:20
+
+Implemented heuristic B, failed to implement heuristic C. 
+
+2/11 	8:55 pm 		2:40
+
+Implemented heuristic C, failed to implement heuristics D and E.
+
+2/12	9:00 pm 		2:05
+
+Heuristic C was implemented incorrectly, which was causing heuristics
+D and E to fail. Program now passes all public test cases.
+
+2/13 	1:15 am 		0:30
+
+Fixed a bug which cause a segmentation fault if no flags were specified.
+
+2/13 	8:50 pm 		0:10
+
+Fixed a bug which caused a segmentation fault if no command line args were given.
+
+TOTAL time: 12 hours
+
+I discussed my solution with Viraj S (2/12).
+
+The major difficulties I encountered while writing this program lay mostly
+in understand the interplay between the heuristics and the backtracking, 
+including making sure the heuristics only removed the possibilities they were
+supposed to, and that they were placed in in the optimal part within the 
+backtracking method(before or within the main loop). I was baffled at the 
+strange behavior of my D and E heuristics, before I realized that my C 
+heuristic, which was need to test both of these, often resulted in 
+infinite backtracking.
+Additionally, I was copying the weights and bins for every recursive call,
+which casued the program to run incredibly slowly. It was often hard to pinpoint
+the location in the program which was causing the program to run slowly, whether
+it be a heurisitc or some other part of the backtracking algorithm. Overall, I
+still feel like my solution could in some way be sped up, but I am not quite sure 
+how. 
+
+
+
+

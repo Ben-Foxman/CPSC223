@@ -1,0 +1,70 @@
+Ben Foxman - netid btf28
+ESTIMATE: 8 hours
+
+Date | Time Started | Time Spent 
+--------------------------------------------------------------------------------
+1/29   2:25 pm       2:45   
+
+Outlined solution, wrote method headers and general control structure. Wrote
+method to update the chars when reading a char, and method to identify and 
+print identifiers. Implemented methods to handle comments, strings. 
+Program passes 10/13 public test cases. 
+
+1/29   7:50 pm       2:20
+
+Implemented methods to hande line splicing, char constants. Program passes 
+13/13 public tests, but fails to process numeric expressions (such as 0xface)
+correctly. Fixed next_char() to handle EOF and 255 separately. 
+
+1/31   1:30 pm       1:20
+
+Fixed error when reading numeric expressions. Discovered and fixed an error 
+involving char constants,and bug which caused block comments to end prematurely, 
+and bug which caused last identifier to not have a line number.
+
+1/31   4:45 pm       1:00
+
+Did some more debugging, could not induce any errors. Wrote statement of 
+difficulties.  
+
+2/1   1:25 am        0:20
+
+Caught one last error which caused a \ char between two letters to be ignored,
+causing the letters to be part of the same string. 
+
+TOTAL time spent: 7:45
+
+--------------------------------------------------------------------------------
+
+I did not discuss my code with anyone.
+
+Statement of difficulties:
+
+In general, I would say that the difficulty of this program stemmed mostly 
+from dealing with various edge cases. For example, while handling escape 
+characters within a string, it took me a long time to realize that I also had to 
+account for the possibility that the escape backlash could also be escaped, 
+which caused some incredibly confusing output when I ran into inputs such 
+as "\\". It also took me a while to realize that although /*/ starts but does 
+not finish a comment, my program was detecting both /* and */. These sort of 
+unusual edge cases popped up frequently during my programming/debugging. 
+
+Also, I had some difficulties in implementing some of the methods. 
+The method to handle line splicing (check_splices()) also ended up being
+trickier to implement than I expected, and I went through a few iterations
+of the method before realizing I needed to use a while loop to handle cases 
+where multiple line splices would occur in succession. In addition, I realized
+that some of my methods, particularly skip_number() and get_identifier(), 
+read one character past their desired stopping point(since they would read a 
+char and then determine that char did not fit certain criteria). I tried using
+the ungetchar macro, but this ran into problems where the prevChar variable
+stored the wrong information. Eventually, I ended up using a noRead variable, 
+to prevent additional character reading, which fortunately did the trick.
+
+
+
+
+
+
+
+
